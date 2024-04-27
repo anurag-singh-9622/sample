@@ -1,3 +1,4 @@
+# file two.py
 # Sample Python code with functions, classes, and variables
 
 # Define a function to calculate the square of a number
