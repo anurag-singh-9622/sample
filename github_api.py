@@ -1,38 +1,42 @@
-### Imports
-- `os`: Operating system dependent functionality.
-- `requests`: HTTP library for making API requests.
-- `base64`: Encoding and decoding base64 data.
-- `streamlit`: Library for building web apps.
+### Code Explanation
 
-### Variables
-- `listallfile`: List to store file paths.
-- `list_of_contents`: Dictionary to store file paths as keys and decoded content as values.
+#### Imports
+- `os`: Module for interacting with the operating system.
+- `requests`: Module for sending HTTP requests.
+- `base64`: Module for encoding and decoding base64 data.
+- `streamlit as st`: Streamlit library for creating interactive web applications.
 
-### Functions
-- `fetch_code_files`: Function to fetch code files from a specified GitHub repository.
+#### Variables
+- `listallfile`: A list to store file paths.
+- `list_of_contents`: A dictionary to store file paths as keys and decoded contents as values.
 
-### Function parameters
-- `owner`: GitHub repository owner's username.
-- `repo`: GitHub repository name.
-- `file_path='`: Path to the file in the repository.
+#### Functions
+- `fetch_code_files(owner, repo, file_path='')`: Function to fetch code files from a given GitHub repository.
+  
+#### Function Parameters
+- `owner`: Owner of the GitHub repository.
+- `repo`: Name of the GitHub repository.
+- `file_path`: Path of the file in the repository (optional).
 
-### IF/Else
-- Checks if the API request was successful by verifying the status code (`response.status_code == 200`).
+#### IF/Else
+- Checks if the API request was successful by verifying the response status code.
 
-### While loop
-- Not used in the given code snippet.
+#### While loop
+- Not used in the code snippet.
 
-### For loop
-- Iterates through the fetched list of files and processes each file.
+#### For loop
+- Used to iterate over the fetched list of files and their contents.
 
-### Algorithm Used
-- The code fetches code files recursively from a GitHub repository using the GitHub API.
+#### Algorithm Used
+- The code fetches files from a GitHub repository using the GitHub API and decodes the contents.
+
+#### Data Structures
+- Lists and dictionaries are used to store file paths and their contents.
 
 ### Suggestions
-- Uncomment the example usage code to test the function with specific file details.
-- Consider removing or improving the commented-out code for better clarity.
-- Avoid using `print` statements for debugging in production code.
-- Add error handling for potential exceptions during API requests.
-- Revisit the use of global variables (`listallfile` and `list_of_contents`) for better code structure.
-- Consider organizing the code into more functions for better modularity.
-- Add comments to explain the purpose of complex logic within the function.
+1. Uncomment and use the `github_api_url` variable inside the function or pass it as a parameter to `fetch_code_files`.
+2. Avoid global variables like `listallfile` and `list_of_contents`, consider returning these values from the function.
+3. Remove commented-out code blocks to maintain code cleanliness.
+4. Consider handling exceptions and providing more informative error messages.
+5. Use Streamlit functions consistently for displaying content instead of printing.
+6. Add comments to explain complex logic or functionalities in the code.
