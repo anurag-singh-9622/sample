@@ -1,53 +1,66 @@
-### Imports
+### Code Explanation
+
+#### Imports
 - `OpenAI` from `openai`
-- `streamlit` from `streamlit`
-- `os` for interacting with the operating system
-- `time` for time-related functions
+- `streamlit` as `st`
+- `os`
+- `time`
 
-### Variables
-- `api_form`, `api_submit_button`, `api`, `form`, `prompt`, `submit_button`, `download_btn`, `result`, `markdown_output`
+#### Variables
+- `api_submit_btn` (function)
+- `api_form`
+- `api_submit_button`
+- `api`
+- `llm` (function)
+- `response`
+- `client`
+- `text_input` (function)
+- `clicked`
+- `download_clicked`
+- `click_button` (function)
+- `click_download_button` (function)
+- `prompt`
+- `submit_button`
+- `cached_result` (function)
+- `markdown_output`
+- `result`
+- `docx_output`
+- `download_btn`
 
-### Functions
-- `api_submit_btn`: Set the `api_submit_btn` to `True`
-- `llm`: Generate response using OpenAI's `chat.completions.create` method
-- `text_input`: Set `text` to `True`
-- `click_button`: Set `clicked` to `True` and reset `download_clicked` to `False`
-- `click_download_button`: Set `download_clicked` to `True`
-- `cached_result`: Cache the result
+#### Functions
+- `api_submit_btn()` - sets `api_submit_btn` in `st.session_state` to `True`
+- `llm(prompt)` - makes a call to OpenAI's `chat.completions.create` method using the provided prompt
+- `text_input()` - sets `text` in `st.session_state` to `True`
+- `click_button()` - sets `clicked` and `download_clicked` in `st.session_state` to `True` and `False` respectively
+- `click_download_button()` - sets `download_clicked` in `st.session_state` to `True`
+- `cached_result(result)` - caches the result
 
-### Function Parameters
-- `promt` in the `llm` function
+#### Function Parameters
+- `prompt` in `llm(prompt)`
+- `result` in `cached_result(result)`
 
-### Classes
-- No classes defined in the code
+#### IF/Else
+- Conditions for executing different parts of the code based on the state of variables like `api`, `prompt`, `api_submit_btn`, `download_clicked`, etc.
 
-### Classes's Attributes
-- No classes defined in the code
+#### While loop
+- There are no explicit while loops in this code snippet.
 
-### Classes's Methods
-- No classes defined in the code
+#### For loop
+- There are no explicit for loops in this code snippet.
 
-### IF/Else
-- Check for `api_submit_btn` in `st.session_state` and proceed accordingly
-- Check for `clicked` and `download_clicked` to trigger response generation and download respectively
-- Display warnings or success messages based on conditions
+#### Algorithm Used
+- The code interacts with OpenAI's API to generate a response based on the provided prompt using the GPT-3 model.
 
-### While Loop
-- No while loop in the code
-
-### For Loop
-- No for loop in the code
-
-### Algorithm Used
-- The script uses the OpenAI API to generate responses based on user input.
-
-### Data Structures
-- The script uses forms and session_state in Streamlit to manage input and state.
+#### Data Structures
+- There are no complex data structures used in this code snippet.
 
 ### Suggestions
-- Use consistent naming conventions (e.g., `prompt` instead of `promt`).
-- Unify the usage of comments in the code for better readability.
-- Remove unused imports like `time`, `os`, `from bs4 import BeautifulSoup`, and `from markdownify import markdownify as md`.
-- Refactor the code to improve readability and maintainability.
-- Add error handling mechanisms to handle potential exceptions.
-- Consider modularizing the code into smaller functions for better organization.
+- The code contains commented-out imports and code segments, which should be removed if not needed.
+- It's recommended to handle exceptions and error cases to provide better user experience.
+- Consider adding more error handling to prevent unexpected behavior.
+- Improve code readability by adding comments and docstrings to functions.
+- Consider breaking down the code into smaller functions for better organization and reusability.
+- Use consistent naming conventions for variables and functions.
+- Consider using environment variables more effectively for sensitive information like API keys.
+- Add more descriptive messages and feedback to the user interface for better user interaction.
+- Consider optimizing the code for performance where necessary.
