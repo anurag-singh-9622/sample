@@ -1,66 +1,49 @@
-### Code Explanation
+### Imports
+- The code imports necessary modules like `OpenAI`, `streamlit`, `os`, and `time`.
 
-#### Imports
-- `OpenAI` from `openai`
-- `streamlit` as `st`
-- `os`
-- `time`
+### Variables
+- Variables like `api_submit_btn`, `api`, and `prompt` are defined.
 
-#### Variables
-- `api_submit_btn` (function)
-- `api_form`
-- `api_submit_button`
-- `api`
-- `llm` (function)
-- `response`
-- `client`
-- `text_input` (function)
-- `clicked`
-- `download_clicked`
-- `click_button` (function)
-- `click_download_button` (function)
-- `prompt`
-- `submit_button`
-- `cached_result` (function)
-- `markdown_output`
-- `result`
-- `docx_output`
-- `download_btn`
+### Functions
+- `api_submit_btn()`: Sets the `api_submit_btn` flag to `True`.
+- `llm(prompt)`: A function that interacts with the OpenAI API to generate responses based on the provided prompt.
+- `text_input()`: Sets the `text` flag to `True`.
+- `click_button()`: Sets the `clicked` flag to `True` and resets the `download_clicked` flag.
+- `click_download_button()`: Sets the `download_clicked` flag to `True`.
+- `cached_result(result)`: A function to cache the result.
 
-#### Functions
-- `api_submit_btn()` - sets `api_submit_btn` in `st.session_state` to `True`
-- `llm(prompt)` - makes a call to OpenAI's `chat.completions.create` method using the provided prompt
-- `text_input()` - sets `text` in `st.session_state` to `True`
-- `click_button()` - sets `clicked` and `download_clicked` in `st.session_state` to `True` and `False` respectively
-- `click_download_button()` - sets `download_clicked` in `st.session_state` to `True`
-- `cached_result(result)` - caches the result
+### Function parameters
+- The `prompt` parameter is used in the `llm(prompt)` function to provide a user-defined prompt for generating responses.
 
-#### Function Parameters
-- `prompt` in `llm(prompt)`
-- `result` in `cached_result(result)`
+### Classes
+- No classes defined in the code.
 
-#### IF/Else
-- Conditions for executing different parts of the code based on the state of variables like `api`, `prompt`, `api_submit_btn`, `download_clicked`, etc.
+### Classes's Attributes
+- No classes defined in the code.
 
-#### While loop
-- There are no explicit while loops in this code snippet.
+### Classes's Methods
+- No classes defined in the code.
 
-#### For loop
-- There are no explicit for loops in this code snippet.
+### IF/Else
+- The code contains conditional statements to handle different scenarios like checking if the API key is inserted, if the code input is provided, and managing button clicks.
 
-#### Algorithm Used
-- The code interacts with OpenAI's API to generate a response based on the provided prompt using the GPT-3 model.
+### While loop
+- No while loop in the code.
 
-#### Data Structures
-- There are no complex data structures used in this code snippet.
+### For loop
+- No for loop in the code.
+
+### Algorithm Used
+- The code uses the GPT-3.5-turbo model from OpenAI to generate responses based on the input prompt.
+
+### Data structures
+- The code uses dictionaries and lists to structure and manage the data related to generating responses.
 
 ### Suggestions
-- The code contains commented-out imports and code segments, which should be removed if not needed.
-- It's recommended to handle exceptions and error cases to provide better user experience.
-- Consider adding more error handling to prevent unexpected behavior.
-- Improve code readability by adding comments and docstrings to functions.
-- Consider breaking down the code into smaller functions for better organization and reusability.
-- Use consistent naming conventions for variables and functions.
-- Consider using environment variables more effectively for sensitive information like API keys.
-- Add more descriptive messages and feedback to the user interface for better user interaction.
-- Consider optimizing the code for performance where necessary.
+- The code is missing error handling mechanisms.
+- It's recommended to provide more specific and helpful error messages to users.
+- Adding input validation checks for user inputs can enhance the user experience.
+- Remove unnecessary commented-out code for better readability.
+- Consider splitting the code into smaller functions for better maintainability.
+- Implement logging to track the flow of the program and any potential issues.
+- Ensure consistency in coding style and naming conventions for better code readability.
