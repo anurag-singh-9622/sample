@@ -1,49 +1,53 @@
-### Imports
-- The code imports necessary modules like `OpenAI`, `streamlit`, `os`, and `time`.
+### Code Explanation
 
-### Variables
-- Variables like `api_submit_btn`, `api`, and `prompt` are defined.
+#### Imports
+- `OpenAI` is imported from the `openai` module.
+- `st` is imported from the `streamlit` module.
+- `os` is imported to interact with the operating system.
+- `time` is imported to work with time-related functions.
 
-### Functions
-- `api_submit_btn()`: Sets the `api_submit_btn` flag to `True`.
-- `llm(prompt)`: A function that interacts with the OpenAI API to generate responses based on the provided prompt.
-- `text_input()`: Sets the `text` flag to `True`.
-- `click_button()`: Sets the `clicked` flag to `True` and resets the `download_clicked` flag.
-- `click_download_button()`: Sets the `download_clicked` flag to `True`.
-- `cached_result(result)`: A function to cache the result.
+#### Variables
+- `api_submit_btn` is a boolean variable to track the status of the API submit button.
+- `api_key` is a variable to store the API key.
+- `api` is a variable to store the API key from the session state.
+- `text` is a boolean variable to track the status of the text input.
+- `clicked` is a boolean variable to track the button click status.
+- `download_clicked` is a boolean variable to track the download button click status.
+- `response` is a variable to store the response from the API.
 
-### Function parameters
-- The `prompt` parameter is used in the `llm(prompt)` function to provide a user-defined prompt for generating responses.
+#### Functions
+- `api_submit_btn()` sets the `api_submit_btn` variable to `True`.
+- `llm(prompt)` is a function that interacts with the OpenAI API to get completions based on the given prompt.
+- `text_input()` sets the `text` variable to `True`.
+- `click_button()` sets the `clicked` and `download_clicked` variables accordingly.
+- `click_download_button()` sets the `download_clicked` variable to `True`.
+- `cached_result(result)` is a function that processes the result for caching.
 
-### Classes
-- No classes defined in the code.
+#### Classes
+- There are no classes defined in the provided code snippet.
 
-### Classes's Attributes
-- No classes defined in the code.
+#### IF/Else
+- Various if-else conditions are used to control the flow of the program based on button clicks and API key availability.
 
-### Classes's Methods
-- No classes defined in the code.
+#### While loop
+- There are no while loops in the provided code snippet.
 
-### IF/Else
-- The code contains conditional statements to handle different scenarios like checking if the API key is inserted, if the code input is provided, and managing button clicks.
+#### For loop
+- There are no for loops in the provided code snippet.
 
-### While loop
-- No while loop in the code.
+#### Algorithm Used
+- The code snippet primarily interacts with the OpenAI API to generate responses based on prompts provided by the user.
 
-### For loop
-- No for loop in the code.
-
-### Algorithm Used
-- The code uses the GPT-3.5-turbo model from OpenAI to generate responses based on the input prompt.
-
-### Data structures
-- The code uses dictionaries and lists to structure and manage the data related to generating responses.
+#### Data structures
+- The code snippet uses variables to store API keys, button statuses, and API responses.
 
 ### Suggestions
-- The code is missing error handling mechanisms.
-- It's recommended to provide more specific and helpful error messages to users.
-- Adding input validation checks for user inputs can enhance the user experience.
-- Remove unnecessary commented-out code for better readability.
-- Consider splitting the code into smaller functions for better maintainability.
-- Implement logging to track the flow of the program and any potential issues.
-- Ensure consistency in coding style and naming conventions for better code readability.
+- The code should be organized into functions and classes for better maintainability.
+- Error handling mechanisms should be implemented to handle exceptions.
+- Consider using a more descriptive function and variable names.
+- Remove commented-out code and unused imports to keep the code clean.
+- Add more inline comments to explain complex logic.
+- Properly handle sensitive information like API keys (e.g., use environment variables).
+- Consider refactoring repetitive code segments to functions.
+- Improve code readability by following consistent indentation and spacing.
+- Review the logic related to the API key submission and usage for better flow control.
