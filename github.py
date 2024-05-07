@@ -1,61 +1,51 @@
 ### Code Explanation
 
 #### Imports
-- `requests`: Used to send HTTP requests.
-- `base64`: Used for encoding and decoding data in base64 format.
-- `streamlit`: A library for creating interactive web apps.
+- The code imports necessary libraries/modules like `requests`, `base64`, and `streamlit`.
 
 #### Variables
-- `owner`: Represents the owner of the GitHub repository.
-- `repo`: Represents the repository name.
-- `list_of_contents`: Dictionary to store fetched file contents.
-- `list_all_files`: List to store all file paths fetched.
+- The code defines variables `owner`, `repo`, `list_of_contents`.
 
 #### Functions
-- `_fetch_contents`: Fetches file contents recursively from the repository.
-- `_fetch_file_content`: Fetches and decodes the content of a specific file.
-- `fetch_files`: Initiates the fetching of files.
-- `display_files`: Displays the fetched files in Streamlit and prints to the console.
+1. `GitHubRepoFetcher` class:
+   - Constructor (`__init__`): Initializes the class attributes.
+   - `_fetch_contents`: Recursively fetches the contents of files in the repository.
+   - `_fetch_file_content`: Fetches and decodes the content of a specific file.
+   - `fetch_files`: Initiates the recursive fetching of files from the repository.
+   - `display_files`: Displays the fetched files in Streamlit and prints to the console.
+
+2. `Main` class:
+   - `main`: Main execution point for the script.
 
 #### Function Parameters
-- `owner`: Owner of the GitHub repository.
-- `repo`: Repository name.
-- `file_path`: Path of the file in the repository.
+- `owner` and `repo` are passed as parameters to the `GitHubRepoFetcher` class constructor.
 
 #### Classes
-- `GitHubRepoFetcher`: Class to fetch files from a GitHub repository.
-- `Main`: Class with a static method `main()` as the entry point for the script.
+- `GitHubRepoFetcher`: Manages the fetching of files from a GitHub repository.
+- `Main`: Defines the main script execution.
 
 #### Classes's Attributes
-- `owner`, `repo`: Owner and repository name attributes.
-- `list_of_contents`, `list_all_files`: Attributes to store file contents and paths.
+- `owner`, `repo`, `list_of_contents`, `list_all_files` are attributes of the `GitHubRepoFetcher` class.
 
 #### Classes's Methods
-- `_fetch_contents`, `_fetch_file_content`: Internal methods to fetch contents.
-- `fetch_files`: Method to start fetching files.
-- `display_files`: Method to display fetched files.
+- `_fetch_contents`, `_fetch_file_content`, `fetch_files`, `display_files` are methods of the `GitHubRepoFetcher` class.
 
-#### IF/ELSE
-- Used to check the status code of the HTTP response.
-- Handles cases where the response is successful or not.
+#### IF/Else
+- Conditional statements are used to handle responses from the GitHub API.
 
 #### While Loop
-- Not used in the provided code.
+- There are no while loops in the provided code.
 
 #### For Loop
-- Used to iterate over the fetched files and display them.
+- For loops are used to iterate over files and content in the `list_of_contents`.
 
 #### Algorithm Used
-- The code recursively fetches file contents from a GitHub repository and decodes them using base64.
-- It uses Streamlit to display the contents.
+- The code uses a recursive algorithm to fetch all files and their contents from a GitHub repository.
 
 #### Data Structures
-- Dictionary (`list_of_contents`) to store file contents.
-- List (`list_all_files`) to store all file paths.
+- The code uses dictionaries (`list_of_contents`) to store the fetched files and their contents.
 
 ### Suggestions
-- Ensure error handling for network-related errors and API rate limits.
-- Consider adding more detailed comments for complex parts of the code.
-- Implement logging mechanism for better debugging.
-- Refactor `display_files` method to separate display logic from fetching logic for better modularity.
-- Optimize API requests by considering pagination for large repositories.
+- Consider handling exceptions more gracefully (e.g., logging errors, displaying proper error messages).
+- Add more error checking and validation to handle unexpected scenarios.
+- Improve comments and documentation for better code understanding.
