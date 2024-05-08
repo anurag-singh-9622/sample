@@ -1,34 +1,49 @@
-### Explanation of the code:
-- **Imports**: The code imports necessary libraries such as `requests`, `base64`, and `streamlit`.
-- **Variables**: The code defines variables like `owner`, `repo`, `list_of_contents`.
-- **Functions**: The code defines methods inside the `GitHubRepoFetcher` class to fetch contents from a GitHub repository, fetch file content, fetch files recursively, and display fetched files. It also defines a static method `main` inside the `Main` class.
-- **Function parameters**: The `GitHubRepoFetcher` class takes `owner` and `repo` as parameters in its constructor.
-- **Classes**: The code defines two classes, `GitHubRepoFetcher` and `Main`.
-- **Classes's Attributes**:
-    - `GitHubRepoFetcher` has attributes `owner`, `repo`, `list_of_contents`, and `list_all_files`.
-- **Classes's Methods**:
-    - `GitHubRepoFetcher` class has methods `_fetch_contents`, `_fetch_file_content`, `fetch_files`, and `display_files`.
-    - `Main` class has a static method `main`.
+### Imports
+- `requests` is imported for making HTTP requests to the GitHub API.
+- `base64` is imported for encoding and decoding the file content.
+- `streamlit` is imported for creating web apps with Python.
 
-### IF/Else:
-- The code uses if-else statements to check the response status codes and handle different scenarios.
+### Variables
+- `owner` and `repo` store the GitHub repository owner and repository name.
+- `list_of_contents` is used to store the fetched contents of the repository.
+- `list_all_files` contains a list of all the fetched files.
 
-### While loop:
-- There are no while loops used in the code.
+### Functions
+- `GitHubRepoFetcher` class is responsible for fetching and processing files from a GitHub repository.
+- `_fetch_contents` method fetches the contents of files in the repository recursively.
+- `_fetch_file_content` method fetches and decodes the content of a specific file.
+- `fetch_files` method initiates the recursive fetching of files from the repository.
+- `display_files` method displays the fetched files in Streamlit and prints to the console.
 
-### For loop:
-- The code uses for loops to iterate over files and contents in the `list_of_contents`.
+### Classes
+- `GitHubRepoFetcher` class encapsulates the functionality related to fetching files from a GitHub repository.
+- `Main` class contains the main execution point for the script.
 
-### Algorithm Used:
-- The code algorithmically fetches files and their contents from a GitHub repository recursively using the GitHub API.
+### Classes's Attributes
+- `owner` and `repo` in `GitHubRepoFetcher` class store the owner and repository details.
+- `list_of_contents` and `list_all_files` store the fetched contents and all files respectively in `GitHubRepoFetcher` class.
 
-### Data structures:
-- The code uses dictionaries (`list_of_contents`) to store file paths as keys and their contents as values.
+### Classes's Methods
+- `_fetch_contents` and `_fetch_file_content` are internal methods of the `GitHubRepoFetcher` class.
+- `fetch_files` initiates the fetching of files from the repository.
+- `display_files` displays the fetched files in Streamlit and prints to the console.
 
-### Suggestions:
-- Consider handling exceptions more gracefully by providing informative error messages or logging.
-- Implement proper error handling for HTTP requests.
-- Separate the fetching logic from the displaying logic for better separation of concerns.
-- Add comments to explain complex logic or business rules.
-- Consider using `st.write` for consistent output formatting in Streamlit.
-- Avoid excessive printing to the console for large datasets.
+### IF/Else
+- The code uses if...else statements to handle different scenarios based on the response status code of the API requests.
+
+### While loop
+- There is no while loop used in the code.
+
+### For loop
+- `for file, content in self.list_of_contents.items():` loop is used to iterate over the fetched files and their content.
+
+### Algorithm Used
+- The code recursively fetches files from a GitHub repository and decodes their content for display.
+
+### Data structures
+- Dictionaries are used to store the fetched contents and files.
+
+### Suggestions
+- It's recommended to handle exceptions more gracefully by providing informative error messages and potentially logging errors.
+- Avoid printing directly to the console within the class methods; consider using logging mechanisms for better traceability.
+- It would be beneficial to include more error checking and validation in the code to handle edge cases effectively.
