@@ -1,46 +1,45 @@
 ### Imports
-- Imported `Document` from `docx` for handling Word documents.
-- Imported `BeautifulSoup` from `bs4` for parsing HTML content.
+- The code imports `Document` from `docx` and `BeautifulSoup` from `bs4`.
 
 ### Variables
-- `html_content`: Contains a sample HTML content.
+- `html_content`: Contains sample HTML content.
 - `doc`: Represents a new Word document.
-- `soup`: Stores the parsed HTML content.
-- `docx_output`: Holds the Word document in memory.
+- `soup`: Represents the parsed HTML content using BeautifulSoup.
+- `tag`: Represents tags found in the HTML content.
+- `docx_output`: Represents the output Word document.
 
 ### Functions
-- No custom functions defined in the code.
+- None
 
-### Function Parameters
-- No functions defined in the code.
+### Function parameters
+- The `BeautifulSoup` function takes `html_content` and `'html.parser'` as parameters.
 
 ### Classes
-- No classes defined in the code.
+- None
 
 ### Classes's Attributes
-- Not applicable.
+- None
 
 ### Classes's Methods
-- Not applicable.
+- None
 
 ### IF/Else
-- Used an `if-elif-else` statement to check the tag name and add appropriate content to the Word document.
+- The code uses `if` and `elif` statements to differentiate between `<h1>` and `<p>` tags.
 
-### While Loop
-- No while loop used in the code.
+### While loop
+- There are no `while` loops in this code.
 
-### For Loop
-- Used a `for` loop to iterate over the selected HTML tags.
+### For loop
+- The code iterates through tags found using `soup.find_all(['h1', 'p'])`.
 
 ### Algorithm Used
-- The code parses HTML content, extracts specific tags, and adds them to a Word document.
+- The code parses HTML content and adds text and formatting to a Word document.
 
-### Data Structures
-- Utilized lists for storing tag names and paragraphs.
+### Data structures
+- The code uses a `Document` data structure to represent a Word document.
 
 ### Suggestions
-- The code is well-structured and achieves its purpose.
-- Consider handling exceptions during parsing and document creation.
-- Add comments to explain the purpose of complex operations.
-- Encapsulate the main logic in a function for reusability.
-- Ensure proper error handling mechanisms are in place.
+- Consider adding error handling in case parsing the HTML content or adding to the Word document fails.
+- Add comments to explain complex logic or improve code readability.
+- Use more descriptive variable names to enhance code readability.
+- Consider breaking down the code into smaller functions for better organization and reusability.
