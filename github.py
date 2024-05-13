@@ -1,51 +1,91 @@
-### Code Explanation
+```python
+import requests
+import base64
+import streamlit as st
 
-#### Imports
-- The code imports necessary libraries/modules like `requests`, `base64`, and `streamlit`.
+class GitHubRepoFetcher:
+    def __init__(self, owner, repo):
+        self.owner = owner
+        self.repo = repo
+        self.list_of_contents = {}  # Dictionary to store file contents
+        self.list_all_files = []  # List to store all file paths
 
-#### Variables
-- The code defines variables `owner`, `repo`, `list_of_contents`.
+    def _fetch_contents(self, file_path=""):
+        """
+        Fetches the contents of files in the repository recursively.
+        """
+        github_api_url = f"https://api.github.com/repos/{self.owner}/{self.repo}/contents/{file_path}"
+        response = requests.get(github_api_url)
 
-#### Functions
-1. `GitHubRepoFetcher` class:
-   - Constructor (`__init__`): Initializes the class attributes.
-   - `_fetch_contents`: Recursively fetches the contents of files in the repository.
-   - `_fetch_file_content`: Fetches and decodes the content of a specific file.
-   - `fetch_files`: Initiates the recursive fetching of files from the repository.
-   - `display_files`: Displays the fetched files in Streamlit and prints to the console.
+        if response.status_code == 200:
+            list_files = response.json()
+            for file in list_files:
+                current_path = file["path"]
+                if file["type"] == "dir":
+                    self._fetch_contents(current_path)  # Recursive call for directories
+                else:
+                    content = self._fetch_file_content(current_path)
+                    self.list_of_contents[current_path] = content
+                    self.list_all_files.append(current_path)
+        else:
+            print(f"Failed to retrieve code file '{file_path}'. Status code: {response.status_code}")
 
-2. `Main` class:
-   - `main`: Main execution point for the script.
+    def _fetch_file_content(self, file_path):
+        """
+        Fetches and decodes the content of a specific file in the repository.
+        """
+        github_api_url = f"https://api.github.com/repos/{self.owner}/{self.repo}/contents/{file_path}"
+        response = requests.get(github_api_url)
+        if response.status_code == 200:
+            encoded_content = response.json()["content"]
+            decoded_content = base64.b64decode(encoded_content).decode("utf-8")
+            return decoded_content
+        else:
+            raise Exception(f"Failed to retrieve content for '{file_path}'.")
 
-#### Function Parameters
-- `owner` and `repo` are passed as parameters to the `GitHubRepoFetcher` class constructor.
+    def fetch_files(self):
+        """
+        Initiates the recursive fetching of files from the repository.
+        """
+        self._fetch_contents()
+        return self.list_of_contents
 
-#### Classes
-- `GitHubRepoFetcher`: Manages the fetching of files from a GitHub repository.
-- `Main`: Defines the main script execution.
+    def display_files(self):
+        """
+        Displays the fetched files in Streamlit and prints to the console.
+        """
+        for file, content in self.list_of_contents.items():
+            st.subheader(file)
+            st.code(content, language="python", line_numbers=True)
+            st.write("#" * 50)
+            print(content)
+            print("##" * 100)
 
-#### Classes's Attributes
-- `owner`, `repo`, `list_of_contents`, `list_all_files` are attributes of the `GitHubRepoFetcher` class.
+class Main:
+    @staticmethod
+    def main():
+        """
+        Main execution point for the script.
+        """
+        # Specify the repository details
+        owner = "anurag-singh-9622"
+        repo = "sample"
+        list_of_contents = {}
+        # Instantiate the GitHubRepoFetcher class
+        fetcher = GitHubRepoFetcher(owner, repo)
 
-#### Classes's Methods
-- `_fetch_contents`, `_fetch_file_content`, `fetch_files`, `display_files` are methods of the `GitHubRepoFetcher` class.
+        # Fetch files from the repository
+        list_of_contents = fetcher.fetch_files()
 
-#### IF/Else
-- Conditional statements are used to handle responses from the GitHub API.
+        # Display the fetched files
+        for file, content in list_of_contents.items():
+            st.subheader(file)
+            st.code(content, language="python", line_numbers=True)
+            st.write("#" * 50)
+            print(content)
+            print("##" * 100)
 
-#### While Loop
-- There are no while loops in the provided code.
-
-#### For Loop
-- For loops are used to iterate over files and content in the `list_of_contents`.
-
-#### Algorithm Used
-- The code uses a recursive algorithm to fetch all files and their contents from a GitHub repository.
-
-#### Data Structures
-- The code uses dictionaries (`list_of_contents`) to store the fetched files and their contents.
-
-### Suggestions
-- Consider handling exceptions more gracefully (e.g., logging errors, displaying proper error messages).
-- Add more error checking and validation to handle unexpected scenarios.
-- Improve comments and documentation for better code understanding.
+if __name__ == "__main__":
+    Main.main()
+```
+```
