@@ -1,69 +1,54 @@
 ### Imports
-- `requests`: Library for making HTTP requests.
-- `base64`: Library for encoding and decoding data with base64.
-- `streamlit`: Library for creating web applications.
+- `requests`: Used for making HTTP requests.
+- `base64`: Used for encoding and decoding data.
+- `streamlit as st`: Used for creating interactive web apps.
 
 ### Variables
-- `owner`: Username of the GitHub repository owner.
-- `repo`: Name of the GitHub repository.
-- `list_of_contents`: Dictionary to store fetched file contents.
-- `list_all_files`: List to store paths of all fetched files.
+- `owner`: Represents the owner of the GitHub repository.
+- `repo`: Represents the name of the repository.
+- `list_of_contents`: Dictionary to store the contents of fetched files.
+- `list_all_files`: List to store all file paths.
 
 ### Functions
-- `_fetch_contents`: Fetches the contents of files in the repository recursively.
+- `_fetch_contents`: Recursively fetches the contents of files in the repository.
 - `_fetch_file_content`: Fetches and decodes the content of a specific file in the repository.
 - `fetch_files`: Initiates the recursive fetching of files from the repository.
 - `display_files`: Displays the fetched files in Streamlit and prints to the console.
-- `Main.main`: Main execution point for the script.
+- `main`: Main execution point for the script.
 
 ### Function Parameters
-- `_fetch_contents`: `file_path` (optional, defaults to empty string).
-- `_fetch_file_content`: `file_path`.
-- `fetch_files`: No parameters.
-- `display_files`: No parameters.
-- `Main.main`: No parameters.
+- `self`: Refers to the instance of the class.
+- `owner`: Represents the owner of the GitHub repository.
+- `repo`: Represents the name of the repository.
+- `file_path`: Path of the file to fetch.
 
 ### Classes
 - `GitHubRepoFetcher`: Class to fetch files from a GitHub repository.
-- `Main`: Class containing the main execution point for the script.
+- `Main`: Class representing the main execution point for the script.
 
-### Classes's Attributes
-- `owner`: Owner of the GitHub repository.
-- `repo`: Name of the GitHub repository.
-- `list_of_contents`: Dictionary to store fetched file contents.
-- `list_all_files`: List to store paths of all fetched files.
+### Class Attributes
+- `owner`: Owner of the repository.
+- `repo`: Repository name.
+- `list_of_contents`: Dictionary to store file contents.
+- `list_all_files`: List to store all file paths.
 
-### Classes's Methods
-- `_fetch_contents`: Fetches the contents of files in the repository recursively.
-- `_fetch_file_content`: Fetches and decodes the content of a specific file in the repository.
-- `fetch_files`: Initiates the recursive fetching of files from the repository.
-- `display_files`: Displays the fetched files in Streamlit and prints to the console.
-- `Main.main`: Main execution point for the script.
+### Class Methods
+- `_fetch_contents`: Fetches contents of files recursively.
+- `_fetch_file_content`: Fetches and decodes file content.
+- `fetch_files`: Initiates the fetching of files from the repository.
+- `display_files`: Displays fetched files.
 
 ### IF/Else
-- Check if the response status code is 200 for successful API requests.
-- Handle exceptions for failed API requests.
-
-### While Loop
-- There are no while loops in the provided code.
-
-### For Loop
-- Used to iterate over the fetched files and display them in Streamlit and console.
+- Used for handling different status codes returned by the API calls.
 
 ### Algorithm Used
-- The script fetches files from a GitHub repository using the GitHub API.
-- It decodes the content of each file and stores it for display.
-- It utilizes recursion to fetch contents of directories within the repository.
+- The script recursively fetches files from a GitHub repository using the GitHub API and decodes file contents.
 
 ### Data Structures
-- Dictionary `list_of_contents` to store file paths and contents.
-- List `list_all_files` to store all fetched file paths.
+- Dictionary and lists are used to store file contents and paths.
 
 ### Suggestions
-- Instead of printing error messages directly, consider logging them for better error handling.
-- Add error handling for cases where the GitHub API request fails.
-- Consider adding more comments to explain the purpose of each method and class.
-- Optimize the display of files in Streamlit to improve user experience.
-- Add docstrings to each function and class for better documentation.
-
-Overall, the code structure is reasonable, and the script accomplishes the task of fetching and displaying files from a GitHub repository.
+1. It's recommended to handle exceptions more gracefully by providing detailed error messages or logging errors.
+2. Avoid using print statements directly in methods. Consider using a logging mechanism for better error handling and debugging.
+3. Encapsulate the Streamlit display logic in a separate function/class for better organization.
+4. Add comments to explain complex logic or important sections of the code for better readability.
