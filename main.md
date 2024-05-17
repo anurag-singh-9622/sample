@@ -27,7 +27,7 @@
 - No classes defined in the provided code snippet.
 
 #### IF/Else
-- Various if-else conditions used to control the flow based on button clicks and API key availability.
+- Various if-else conditions used to control the flow of the program based on button clicks and API key availability.
 
 #### While loop
 - No while loops in the provided code snippet.
@@ -36,18 +36,18 @@
 - No for loops in the provided code snippet.
 
 #### Algorithm Used
-- The code interacts with the OpenAI API to generate responses based on user prompts.
+- The code snippet primarily interacts with the OpenAI API to generate responses based on prompts provided by the user.
 
 #### Data structures
-- Variables used to store API keys, button statuses, and API responses.
+- The code snippet uses variables to store API keys, button statuses, and API responses.
 
 ### Suggestions
 - Organize code into functions and classes for maintainability.
-- Implement error handling for exceptions.
+- Implement error handling mechanisms to handle exceptions.
 - Use descriptive function and variable names.
 - Remove commented-out code and unused imports.
-- Add inline comments for complex logic.
-- Secure sensitive information like API keys.
-- Refactor repetitive code segments into functions.
-- Improve readability with consistent indentation and spacing.
-- Review API key submission and usage logic for better flow control.
+- Add inline comments to explain complex logic.
+- Secure sensitive information like API keys (e.g., use environment variables).
+- Refactor repetitive code segments to functions.
+- Improve code readability with consistent indentation and spacing.
+- Review logic related to API key submission and usage for better flow control.
