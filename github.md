@@ -1,31 +1,30 @@
 # Code Documentation
 
-This code is a script written in Python to fetch repository details from GitHub, specifically the contents of files in a repository. It utilizes the Streamlit library for displaying the fetched files.
+This code fetches repository details from GitHub and displays the files in Streamlit.
 
-### Importing Libraries
-- `requests`: Used for making HTTP requests to the GitHub API.
-- `base64`: Used for decoding base64 encoded content fetched from the GitHub API.
-- `streamlit as st`: Used for creating interactive web apps for displaying the fetched files.
+### GitHubRepoFetcher Class
+- **Attributes**:
+  - `owner`: Owner of the repository
+  - `repo`: Name of the repository
+  - `list_of_contents`: Dictionary to store file contents
+  - `list_all_files`: List to store all file paths
 
-### `GitHubRepoFetcher` Class
-- `__init__(self, owner, repo)`: Constructor method to initialize the class with owner and repo details.
-- `_fetch_contents(self, file_path="")`: Private method to recursively fetch the contents of files in the repository.
-- `_fetch_file_content(self, file_path)`: Private method to fetch and decode the content of a specific file in the repository.
-- `fetch_files(self)`: Public method to initiate the recursive fetching of files from the repository and return the fetched contents.
-- `display_files(self)`: Public method to display the fetched files in Streamlit and print to the console.
+- **Methods**:
+  - `_fetch_contents(self, file_path="")`: Fetches contents of files in the repository recursively.
+  - `_fetch_file_content(self, file_path)`: Fetches and decodes content of a specific file.
+  - `fetch_files(self)`: Initiates recursive fetching of files.
+  - `display_files(self)`: Displays fetched files in Streamlit and prints to console.
 
-### `Main` Class
-- `main()`: Static method serving as the main execution point for the script.
-- Initiates the `GitHubRepoFetcher` class with repository details.
-- Fetches files from the repository using `fetch_files()` method.
-- Displays the fetched files using Streamlit and prints to the console.
+### Main Class
+- **Methods**:
+  - `main()`: Main execution point for the script.
 
-### Execution
-- The script runs the `main()` method when executed.
-- It specifies the repository details (owner and repo).
-- Fetches and displays the files from the repository using Streamlit for visualization.
+### Execution Flow
+1. Instantiate `GitHubRepoFetcher` with owner and repo details.
+2. Fetch files from the repository.
+3. Display the fetched files using Streamlit.
 
-### Note
-- The script uses Streamlit for displaying files in an interactive web app format.
-- It utilizes recursive fetching to handle directories and their contents.
-- Base64 encoding is used to decode content fetched from the GitHub API.
+### Usage
+1. Run the script.
+2. Specify the repository details.
+3. Files and their contents will be displayed in Streamlit and printed to the console.
