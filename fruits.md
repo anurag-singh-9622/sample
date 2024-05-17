@@ -1,28 +1,30 @@
+# Code Documentation
+
 ### Imports
-- The code imports the `OpenAI` class from a module named `openai`.
-- The code also imports the `json` module for JSON handling.
+- `from openai import OpenAI`: Imports the `OpenAI` class from the `openai` module.
+- `import json`: Imports the `json` module.
 
 ### Variables
-- `client`: An instance of `OpenAI` class.
-- `prompt`: A string containing a sample order prompt.
-- `function`: A list containing a dictionary with information about functions to be called.
-- `response`: A response object from calling a function from the OpenAI client.
-- `response_message`: A message extracted from the response object.
+- `prompt`: Contains a string with an order for apples.
+- `function`: List of dictionaries specifying a function's name, description, and parameters.
+- `response_message`: Stores the response message from OpenAI.
 
 ### Functions
-- `fruit_list`: A function that takes `name`, `count`, and `address` as parameters and returns a formatted string.
+- `fruit_list(name, count, address)`: Defines a function to generate a message about the ordered fruits.
 
 ### Function parameters
-- `fruit_list` function takes `name`, `count`, and `address` as parameters.
+- `fruit_list(name, count, address)`: Takes `name`, `count`, and `address` as parameters.
 
 ### IF/Else
-- The code uses an if-else block to check if a specific function is called.
+- Checks if a specific key is present in the response message and processes accordingly.
 
 ### Algorithm Used
-- The code utilizes OpenAI's API to interact with the GPT-3.5 model.
+- The code interacts with the OpenAI API to generate a response message based on the provided prompt.
 
 ### Suggestions
-- It's not recommended to include commented-out code in the production codebase. Remove unnecessary commented code blocks.
-- Ensure error handling for scenarios where the expected keys are not present in the response_message.
-- Consider adding documentation/comments to explain the purpose of the code blocks and functions for better readability.
-- Refactor the code for better readability and maintainability by splitting it into smaller functions and classes if needed.
+1. It's recommended to handle potential exceptions when accessing JSON data to avoid runtime errors.
+2. Provide more descriptive comments to explain the purpose of each section of the code.
+3. Consider modularizing the code further to enhance readability and maintainability.
+4. Utilize meaningful variable names for better code understanding.
+5. Remove commented-out code blocks to keep the code clean and easier to read.
+6. Add error handling to manage potential failures during API interactions.
