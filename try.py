@@ -39,12 +39,3 @@ docx_output = doc  # storing the document in a variable
 # Print the first paragraph (for demonstration purposes)
 print(docx_output.paragraphs[0].text)  # printing the text of the first paragraph
 ```
-
-Explanation:
-1. The code imports the `Document` class from the `docx` module and the `BeautifulSoup` class for parsing HTML content.
-2. An HTML content string is provided as a sample.
-3. A new Word document `doc` is created using the `Document` class.
-4. The HTML content is parsed using BeautifulSoup to extract text and formatting.
-5. The code iterates through 'h1' and 'p' tags in the HTML content and adds headings or paragraphs to the Word document based on the tag type.
-6. The resulting document is stored in the variable `docx_output`.
-7. For demonstration purposes, the text of the first paragraph in the document is printed.
