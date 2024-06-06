@@ -1,31 +1,33 @@
 # Code Documentation
 
-This code is a function `llm_response` that takes in parameters `api_key`, `prompt`, `code`, and an optional parameter `context`. It uses various modules and functions from the `langchain_community`, `langchain_text_splitters`, `langchain_openai`, `langchain_core`, and `streamlit` libraries.
+### Importing Libraries
+- `from langchain_community.embeddings.openai import OpenAIEmbeddings`: Importing the OpenAIEmbeddings class from the embeddings module in the langchain_community library.
+- `from langchain_community.embeddings.huggingface import HuggingFaceInstructEmbeddings`: Importing the HuggingFaceInstructEmbeddings class from the embeddings module in the langchain_community library.
+- `from langchain_community.vectorstores.faiss import FAISS`: Importing the FAISS class from the vectorstores module in the langchain_community library.
+- `from langchain_text_splitters import (Language,RecursiveCharacterTextSplitter,)`: Importing the Language and RecursiveCharacterTextSplitter classes from the langchain_text_splitters module.
+- `from langchain_openai import OpenAI, ChatOpenAI, OpenAIEmbeddings`: Importing the OpenAI, ChatOpenAI, and OpenAIEmbeddings classes from the langchain_openai module.
+- `import os`: Importing the os module.
+- `from langchain.chains.combine_documents import create_stuff_documents_chain`: Importing the create_stuff_documents_chain function from the chains module in the langchain library.
+- `from langchain_core.prompts import ChatPromptTemplate`: Importing the ChatPromptTemplate class from the prompts module in the langchain_core library.
+- `from langchain.chains import create_retrieval_chain`: Importing the create_retrieval_chain function from the chains module in the langchain library.
+- `import streamlit as st`: Importing the streamlit library as st.
 
-## Function `llm_response`
+### Function Definition
+- `@st.cache_data(show_spinner=True)`: Decorator for caching data with a spinner while loading.
+- `def llm_response(api_key, prompt, code, context="context not available"):`: Function definition with parameters api_key, prompt, code, and optional context.
 
-### Parameters:
-- `api_key`: The OpenAI API key required for authentication.
-- `prompt`: The prompt for generating a response.
-- `code`: The code for which a response needs to be generated.
-- `context` (optional): Additional context information related to the code.
+### Function Implementation
+- Setting the OpenAI API key as an environment variable.
+- Creating a RecursiveCharacterTextSplitter object to split the text based on specific parameters.
+- Splitting the provided context text into chunks.
+- Initializing OpenAI embeddings with the provided API key.
+- Creating a FAISS vectorstore from the text embeddings.
+- Creating a ChatOpenAI model for conversation with specific parameters.
+- Creating a ChatPromptTemplate for generating a response.
+- Creating a document chain for processing documents using the ChatOpenAI model and prompt template.
+- Creating a retriever from the vectorstore.
+- Creating a retrieval chain for retrieving documents based on the input prompt and code.
+- Invoking the retrieval chain and returning the final response.
 
-### Steps:
-1. Set the OpenAI API key as an environment variable.
-2. Split the context text using `RecursiveCharacterTextSplitter`.
-3. Create OpenAI embeddings using the API key.
-4. Create a FAISS vectorstore from the text embeddings.
-5. Create a `ChatOpenAI` model for conversation.
-6. Create a `ChatPromptTemplate` for the response.
-7. Create a document chain for processing documents.
-8. Create a retriever from the vectorstore.
-9. Create a retrieval chain for retrieving documents.
-10. Invoke the retrieval chain with the prompt and code.
-11. Print and return the final response.
-
-### Usage:
-```python
-response = llm_response(api_key, prompt, code, context)
-```
-
-The function caches data and shows a spinner while processing.
+### Note
+- This code snippet is designed to interact with OpenAI API to generate responses based on a provided prompt and code context. It utilizes text splitting, embeddings, vectorstore, and retrieval chain mechanisms for processing and retrieving information.
