@@ -1,34 +1,26 @@
-# Code Documentation
+The provided Python code consists of functions that interact with different AI models to generate SQL code based on input messages. Here is an analysis of the code quality:
 
-## Importing Libraries
-- `os`: provides a way to interact with the operating system.
-- `load_dotenv`: loads environment variables from a .env file.
-- `openai`: library for interacting with the OpenAI API.
-- `re`: provides support for regular expressions.
+1. Readability and Maintainability:
+   - The code is well-formatted and easy to understand.
+   - Meaningful variable and function names are used, such as `__extract_sql_code`, `send_to_openai_chat`, `send_to_vertexai`, and `send_to_replicate`.
+   - Proper indentation is used throughout the code, making it easy to read.
+   - Comments are present to explain the purpose of functions and certain code blocks.
 
-## Extract SQL Code Function
-- `__extract_sql_code(markdown_string: str) -> str`: extracts SQL code blocks from a Markdown string.
-    - Uses a regex pattern to match SQL code blocks.
-    - Finds all matches in the markdown string.
-    - Extracts the SQL code from the matches.
-    - Returns the extracted SQL code or the last part of the string if no code blocks are found.
+2. Efficiency and Performance:
+   - The code does not contain obvious bottlenecks or inefficiencies.
+   - It could potentially be optimized for faster execution by improving the handling of AI model responses.
 
-## Send to OpenAI Chat Function
-- `send_to_openai_chat(model, message_log) -> str`: sends a message log to the OpenAI Chat API.
-    - Creates a chat completion using the specified model and message log.
-    - Extracts SQL code from the response choices or the default choice.
+3. Error Handling and Testing:
+   - The code handles potential errors gracefully by returning default values if certain conditions are not met.
+   - There are no explicit unit tests written within the code.
 
-## Initializing VertexAI
-- Initializes VertexAI with project and location information from environment variables.
+4. Potential Bugs and Vulnerabilities:
+   - The code does not introduce any obvious security vulnerabilities.
+   - However, there might be room for improvement in error handling to prevent potential bugs.
 
-## Send to VertexAI Function
-- `send_to_vertexai(message_log) -> str`: sends a message log to a Code Generation Model on VertexAI.
-    - Sets parameters for model prediction.
-    - Predicts SQL code using the specified model and message log.
+Suggestions for Improvement:
+- Consider adding more detailed error handling to cover edge cases and unexpected scenarios.
+- Implement unit tests to ensure the functionality of each AI model interaction.
+- Refactor repetitive code segments to improve code reuse and maintainability.
 
-## Send to Replicate Function
-- `send_to_replicate(message_log) -> str`: sends a message log to a model on Replicate.
-    - Runs the specified model with the input prompt.
-    - Streams output from the model and extracts SQL code.
-
-These functions provide ways to interact with different AI models for generating SQL code based on input messages.
+Overall Rating: Fair
